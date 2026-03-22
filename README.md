@@ -11,6 +11,7 @@ A collection of retro arcade-themed typing games for kids (ages 6-8) to learn to
 | Asteroids | Ready | Rocks drift toward your ship. Type to blast. Large rocks split into smaller ones. |
 | Missile Command | Ready | Missiles rain down on cities. Type to launch counter-missiles and intercept. |
 | Tapper | Ready | Customers slide down bar lanes. Type the word to serve them a drink. |
+| Rampage | Ready | Play as a monster smashing buildings. Type words to destroy. ROAR power-up! |
 
 ## Progression System
 
@@ -114,7 +115,8 @@ retro-typing/
 │   │   ├── SpaceInvadersScene.js
 │   │   ├── AsteroidsScene.js
 │   │   ├── MissileCommandScene.js
-│   │   └── TapperScene.js
+│   │   ├── TapperScene.js
+│   │   └── RampageScene.js
 │   ├── config.js           # Phaser game configuration
 │   └── main.js             # Bootstrap
 └── assets/                 # Sprites, audio (future)

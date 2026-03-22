@@ -38,12 +38,13 @@ Browser-based retro arcade typing games for kids (ages 6-8). Typing IS the game 
 - Progression stored in localStorage under key `retro-typing-scores`
 - Each game has independent level unlock progression
 
-### Games (all 5 complete)
+### Games (all 6 complete)
 - **WhackAMoleScene** — 3x3 hole grid, moles pop up with timed visibility, lives system
 - **SpaceInvadersScene** — Formation grid that moves/descends, bullet animation on word complete, wave respawn
 - **AsteroidsScene** — Ship in center, rocks drift inward from edges, large asteroids split into 2 smaller ones
 - **MissileCommandScene** — Missiles target random alive cities, trail rendering, counter-missile intercept animation
 - **TapperScene** — Multiple bar lanes, customers slide left-to-right, mug slide animation on serve
+- **RampageScene** — Monster smashes buildings block by block, taller buildings = longer words, ROAR power-up clears screen
 
 ### Texture Generation
 - All sprites are generated programmatically in `BootScene.generateTextures()`
