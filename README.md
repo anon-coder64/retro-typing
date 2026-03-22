@@ -7,10 +7,10 @@ A collection of retro arcade-themed typing games for kids (ages 6-8) to learn to
 | Game | Status | Description |
 |------|--------|-------------|
 | Whack-a-Mole | Ready | Moles pop up with words. Type the word to whack them before they escape. |
-| Space Invaders | Planned | Enemies descend with words. Type to fire. |
-| Asteroids | Planned | Rocks drift toward your ship with words. Type to blast. |
-| Missile Command | Planned | Missiles rain down on cities. Type to intercept. |
-| Tapper | Planned | Customers slide toward you. Type to serve them. |
+| Space Invaders | Ready | Enemies descend in formation. Type a word to shoot that enemy. |
+| Asteroids | Ready | Rocks drift toward your ship. Type to blast. Large rocks split into smaller ones. |
+| Missile Command | Ready | Missiles rain down on cities. Type to launch counter-missiles and intercept. |
+| Tapper | Ready | Customers slide down bar lanes. Type the word to serve them a drink. |
 
 ## Progression System
 
@@ -110,7 +110,11 @@ retro-typing/
 │   │   ├── LevelSelectScene.js
 │   │   ├── HUDScene.js     # Score/WPM/timer overlay
 │   │   ├── GameOverScene.js
-│   │   └── WhackAMoleScene.js
+│   │   ├── WhackAMoleScene.js
+│   │   ├── SpaceInvadersScene.js
+│   │   ├── AsteroidsScene.js
+│   │   ├── MissileCommandScene.js
+│   │   └── TapperScene.js
 │   ├── config.js           # Phaser game configuration
 │   └── main.js             # Bootstrap
 └── assets/                 # Sprites, audio (future)

@@ -24,7 +24,11 @@
       window.RetroTyping.LevelSelectScene,
       window.RetroTyping.HUDScene,
       window.RetroTyping.GameOverScene,
-      window.RetroTyping.WhackAMoleScene
+      window.RetroTyping.WhackAMoleScene,
+      window.RetroTyping.SpaceInvadersScene,
+      window.RetroTyping.AsteroidsScene,
+      window.RetroTyping.MissileCommandScene,
+      window.RetroTyping.TapperScene
     ]
   };
 })();

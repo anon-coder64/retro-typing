@@ -36,15 +36,15 @@
 
       // Game list
       var games = [
-        { name: 'WHACK-A-MOLE', scene: 'LevelSelect', gameKey: 'whack-a-mole', available: true },
-        { name: 'SPACE INVADERS', scene: null, gameKey: 'space-invaders', available: false },
-        { name: 'ASTEROIDS', scene: null, gameKey: 'asteroids', available: false },
-        { name: 'MISSILE COMMAND', scene: null, gameKey: 'missile-command', available: false },
-        { name: 'TAPPER', scene: null, gameKey: 'tapper', available: false }
+        { name: 'WHACK-A-MOLE', gameKey: 'whack-a-mole', sceneName: 'WhackAMole' },
+        { name: 'SPACE INVADERS', gameKey: 'space-invaders', sceneName: 'SpaceInvaders' },
+        { name: 'ASTEROIDS', gameKey: 'asteroids', sceneName: 'Asteroids' },
+        { name: 'MISSILE COMMAND', gameKey: 'missile-command', sceneName: 'MissileCommand' },
+        { name: 'TAPPER', gameKey: 'tapper', sceneName: 'Tapper' }
       ];
 
       var startY = 230;
-      var spacing = 70;
+      var spacing = 65;
 
       games.forEach(function (game, i) {
         var y = startY + i * spacing;
@@ -52,30 +52,20 @@
         var label = this.add.text(centerX, y, game.name, {
           fontFamily: '"Press Start 2P", monospace',
           fontSize: '14px',
-          color: game.available ? '#33ff33' : '#666666'
+          color: '#33ff33'
         }).setOrigin(0.5);
 
-        if (!game.available) {
-          this.add.text(centerX + 130, y, 'SOON', {
-            fontFamily: '"Press Start 2P", monospace',
-            fontSize: '8px',
-            color: '#ff6633'
-          }).setOrigin(0.5);
-        }
-
-        if (game.available) {
-          btn.on('pointerover', function () {
-            label.setColor('#ffffff');
-            btn.setTint(0x444444);
-          });
-          btn.on('pointerout', function () {
-            label.setColor('#33ff33');
-            btn.clearTint();
-          });
-          btn.on('pointerdown', function () {
-            this.scene.start(game.scene, { gameKey: game.gameKey, sceneName: 'WhackAMole' });
-          }.bind(this));
-        }
+        btn.on('pointerover', function () {
+          label.setColor('#ffffff');
+          btn.setTint(0x444444);
+        });
+        btn.on('pointerout', function () {
+          label.setColor('#33ff33');
+          btn.clearTint();
+        });
+        btn.on('pointerdown', function () {
+          this.scene.start('LevelSelect', { gameKey: game.gameKey, sceneName: game.sceneName });
+        }.bind(this));
       }.bind(this));
 
       // Footer

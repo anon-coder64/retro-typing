@@ -34,15 +34,28 @@ Browser-based retro arcade typing games for kids (ages 6-8). Typing IS the game 
 
 ### Level System
 - Levels define: `allowedKeys`, `minWordLength`, `maxWordLength`, `targetWPM`
-- Also carry game-specific params (e.g., `spawnInterval`, `moleVisibleTime` for Whack-a-Mole)
+- Also carry game-specific params per game (e.g., `spawnInterval`/`moleVisibleTime` for Whack-a-Mole, `invaderSpeed`/`invaderDescentRate` for Space Invaders, etc.)
 - Progression stored in localStorage under key `retro-typing-scores`
+- Each game has independent level unlock progression
+
+### Games (all 5 complete)
+- **WhackAMoleScene** — 3x3 hole grid, moles pop up with timed visibility, lives system
+- **SpaceInvadersScene** — Formation grid that moves/descends, bullet animation on word complete, wave respawn
+- **AsteroidsScene** — Ship in center, rocks drift inward from edges, large asteroids split into 2 smaller ones
+- **MissileCommandScene** — Missiles target random alive cities, trail rendering, counter-missile intercept animation
+- **TapperScene** — Multiple bar lanes, customers slide left-to-right, mug slide animation on serve
+
+### Texture Generation
+- All sprites are generated programmatically in `BootScene.generateTextures()`
+- Do NOT use `fillStar()` or `fillEllipse()` — they don't exist in the CDN Phaser build
+- Use `fillRoundedRect`, `fillCircle`, `fillRect`, and manual `beginPath/moveTo/lineTo/fillPath` instead
 
 ## Hosting
 
 - This is a static site — serve with any HTTP server
-- Target deployment: NixOS nginx on the same server that runs Docker containers, Samba, Tailscale, lldap, etc.
-- Use a dedicated port (e.g., 8888) to avoid conflicts with existing services
-- See README.md for the nginx config snippet
+- Deployed via Tailscale (`tailscale serve`) on the NixOS home server — no firewall ports opened
+- Local Python HTTP server on 127.0.0.1:8888, exposed at `/typing` path over Tailscale HTTPS
+- See README.md for the NixOS systemd service config
 
 ## Code Style
 
