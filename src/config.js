@@ -28,7 +28,8 @@
       window.RetroTyping.SpaceInvadersScene,
       window.RetroTyping.AsteroidsScene,
       window.RetroTyping.MissileCommandScene,
-      window.RetroTyping.TapperScene
+      window.RetroTyping.TapperScene,
+      window.RetroTyping.RampageScene
     ]
   };
 })();

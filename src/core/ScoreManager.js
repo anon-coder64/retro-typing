@@ -12,6 +12,10 @@
     this.startTime = null;
     this.combo = 0;
     this.maxCombo = 0;
+    // Active typing time tracking — only counts time between keystrokes
+    this.activeTypingTime = 0;   // accumulated ms of active typing
+    this.lastKeystrokeTime = null; // timestamp of last keystroke
+    this.idleThreshold = 2000;   // ms — gaps longer than this are considered idle
   }
 
   ScoreManager.prototype.startRound = function () {
@@ -22,9 +26,25 @@
     this.combo = 0;
     this.maxCombo = 0;
     this.startTime = Date.now();
+    this.activeTypingTime = 0;
+    this.lastKeystrokeTime = null;
   };
 
   ScoreManager.prototype.recordKeystroke = function (correct) {
+    var now = Date.now();
+
+    // Track active typing time: if the gap since last keystroke is short,
+    // count it as active typing. Long gaps are idle (waiting for targets).
+    if (this.lastKeystrokeTime !== null) {
+      var gap = now - this.lastKeystrokeTime;
+      if (gap < this.idleThreshold) {
+        this.activeTypingTime += gap;
+      }
+    }
+    // Always count a small base amount for each keystroke (the keystroke itself)
+    this.activeTypingTime += 50;
+    this.lastKeystrokeTime = now;
+
     this.totalCharsTyped++;
     if (correct) {
       this.correctChars++;
@@ -51,10 +71,12 @@
   };
 
   ScoreManager.prototype.getWPM = function () {
-    if (!this.startTime) return 0;
-    var elapsed = (Date.now() - this.startTime) / 60000; // minutes
-    if (elapsed < 0.05) return 0; // avoid wild numbers in first 3 seconds
-    return Math.round((this.correctChars / 5) / elapsed);
+    if (!this.startTime || this.activeTypingTime === 0) return 0;
+    // Use active typing time instead of wall-clock time
+    // This way idle time waiting for targets doesn't tank the WPM
+    var activeMinutes = this.activeTypingTime / 60000;
+    if (activeMinutes < 0.02) return 0; // avoid wild numbers early
+    return Math.round((this.correctChars / 5) / activeMinutes);
   };
 
   ScoreManager.prototype.getAccuracy = function () {

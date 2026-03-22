@@ -252,6 +252,40 @@
       g.strokePath();
       g.generateTexture('mug', 18, 16);
       g.destroy();
+
+      // === Rampage textures ===
+
+      // Monster (big green pixel creature)
+      g = this.add.graphics();
+      // Body
+      g.fillStyle(0x33cc33, 1);
+      g.fillRoundedRect(2, 6, 16, 16, 3);
+      // Head
+      g.fillStyle(0x44dd44, 1);
+      g.fillRoundedRect(1, 0, 18, 10, 4);
+      // Eyes (angry)
+      g.fillStyle(0xffffff, 1);
+      g.fillRect(4, 2, 5, 4);
+      g.fillRect(11, 2, 5, 4);
+      g.fillStyle(0xff0000, 1);
+      g.fillRect(6, 3, 3, 3);
+      g.fillRect(13, 3, 3, 3);
+      // Mouth (jagged teeth)
+      g.fillStyle(0x000000, 1);
+      g.fillRect(3, 7, 14, 3);
+      g.fillStyle(0xffffff, 1);
+      g.fillRect(5, 7, 2, 2);
+      g.fillRect(9, 7, 2, 2);
+      g.fillRect(13, 7, 2, 2);
+      // Arms
+      g.fillStyle(0x33cc33, 1);
+      g.fillRect(0, 10, 3, 8);
+      g.fillRect(17, 10, 3, 8);
+      // Legs
+      g.fillRect(4, 22, 4, 4);
+      g.fillRect(12, 22, 4, 4);
+      g.generateTexture('monster', 20, 26);
+      g.destroy();
     }
   }
 

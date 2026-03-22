@@ -40,11 +40,12 @@
         { name: 'SPACE INVADERS', gameKey: 'space-invaders', sceneName: 'SpaceInvaders' },
         { name: 'ASTEROIDS', gameKey: 'asteroids', sceneName: 'Asteroids' },
         { name: 'MISSILE COMMAND', gameKey: 'missile-command', sceneName: 'MissileCommand' },
-        { name: 'TAPPER', gameKey: 'tapper', sceneName: 'Tapper' }
+        { name: 'TAPPER', gameKey: 'tapper', sceneName: 'Tapper' },
+        { name: 'RAMPAGE', gameKey: 'rampage', sceneName: 'Rampage' }
       ];
 
-      var startY = 230;
-      var spacing = 65;
+      var startY = 220;
+      var spacing = 58;
 
       games.forEach(function (game, i) {
         var y = startY + i * spacing;

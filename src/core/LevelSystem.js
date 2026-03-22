@@ -33,7 +33,11 @@
       customerSpeed: 0.2,
       maxCustomers: 1,
       customerSpawnInterval: 5000,
-      lanes: 3
+      lanes: 3,
+      // Rampage
+      rampageBuildingsPerBlock: 3,
+      rampageBlocks: 3,
+      rampageRoarCharge: 4
     },
     {
       level: 2,
@@ -60,7 +64,10 @@
       customerSpeed: 0.25,
       maxCustomers: 1,
       customerSpawnInterval: 4500,
-      lanes: 3
+      lanes: 3,
+      rampageBuildingsPerBlock: 4,
+      rampageBlocks: 4,
+      rampageRoarCharge: 5
     },
     {
       level: 3,
@@ -87,7 +94,10 @@
       customerSpeed: 0.35,
       maxCustomers: 2,
       customerSpawnInterval: 3500,
-      lanes: 4
+      lanes: 4,
+      rampageBuildingsPerBlock: 4,
+      rampageBlocks: 5,
+      rampageRoarCharge: 5
     },
     {
       level: 4,
@@ -114,7 +124,10 @@
       customerSpeed: 0.45,
       maxCustomers: 2,
       customerSpawnInterval: 3000,
-      lanes: 4
+      lanes: 4,
+      rampageBuildingsPerBlock: 5,
+      rampageBlocks: 5,
+      rampageRoarCharge: 6
     },
     {
       level: 5,
@@ -141,7 +154,10 @@
       customerSpeed: 0.6,
       maxCustomers: 3,
       customerSpawnInterval: 2200,
-      lanes: 4
+      lanes: 4,
+      rampageBuildingsPerBlock: 6,
+      rampageBlocks: 6,
+      rampageRoarCharge: 6
     }
   ];
 
