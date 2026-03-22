@@ -75,9 +75,10 @@
         });
 
         if (this.currentTarget.progress >= this.currentTarget.word.length) {
-          this.events.emit('word-complete', { target: this.currentTarget });
-          this.removeTarget(this.currentTarget.id);
+          var completed = this.currentTarget;
           this.currentTarget = null;
+          this.events.emit('word-complete', { target: completed });
+          this.removeTarget(completed.id);
         }
       } else {
         this.events.emit('keystroke-miss', {
