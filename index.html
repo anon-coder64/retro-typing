@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Typing</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="game-container"></div>
+
+  <!-- Phaser 3 -->
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
+
+  <!-- Word bank -->
+  <script src="words/wordlist.js"></script>
+
+  <!-- Core systems -->
+  <script src="src/core/LevelSystem.js"></script>
+  <script src="src/core/WordEngine.js"></script>
+  <script src="src/core/InputHandler.js"></script>
+  <script src="src/core/ScoreManager.js"></script>
+
+  <!-- Scenes -->
+  <script src="src/scenes/BootScene.js"></script>
+  <script src="src/scenes/MenuScene.js"></script>
+  <script src="src/scenes/LevelSelectScene.js"></script>
+  <script src="src/scenes/HUDScene.js"></script>
+  <script src="src/scenes/GameOverScene.js"></script>
+  <script src="src/scenes/WhackAMoleScene.js"></script>
+
+  <!-- Config and bootstrap (must be last) -->
+  <script src="src/config.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
