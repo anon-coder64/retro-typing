@@ -19,12 +19,12 @@
       }
     },
     scene: [
-      RetroTyping.BootScene,
-      RetroTyping.MenuScene,
-      RetroTyping.LevelSelectScene,
-      RetroTyping.HUDScene,
-      RetroTyping.GameOverScene,
-      RetroTyping.WhackAMoleScene
+      window.RetroTyping.BootScene,
+      window.RetroTyping.MenuScene,
+      window.RetroTyping.LevelSelectScene,
+      window.RetroTyping.HUDScene,
+      window.RetroTyping.GameOverScene,
+      window.RetroTyping.WhackAMoleScene
     ]
   };
 })();

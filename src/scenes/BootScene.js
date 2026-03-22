@@ -8,7 +8,6 @@
     }
 
     preload() {
-      // Show loading text
       var w = this.cameras.main.width;
       var h = this.cameras.main.height;
       this.loadingText = this.add.text(w / 2, h / 2, 'LOADING...', {
@@ -19,7 +18,6 @@
     }
 
     create() {
-      // Generate textures programmatically (no external sprite files needed for MVP)
       this.generateTextures();
       this.scene.start('Menu');
     }
@@ -27,28 +25,25 @@
     generateTextures() {
       var g;
 
-      // Mole hole (dark ellipse)
+      // Mole hole (dark rounded rect as oval substitute)
       g = this.add.graphics();
       g.fillStyle(0x2a1a0a, 1);
-      g.fillEllipse(40, 15, 80, 30);
+      g.fillRoundedRect(0, 2, 80, 26, 13);
       g.generateTexture('hole', 80, 30);
       g.destroy();
 
-      // Mole body (brown circle with face)
+      // Mole body (brown square with face)
       g = this.add.graphics();
       g.fillStyle(0x8B4513, 1);
       g.fillRoundedRect(5, 5, 50, 50, 10);
-      // Eyes
       g.fillStyle(0xffffff, 1);
       g.fillCircle(20, 20, 6);
       g.fillCircle(40, 20, 6);
       g.fillStyle(0x000000, 1);
       g.fillCircle(21, 20, 3);
       g.fillCircle(41, 20, 3);
-      // Nose
       g.fillStyle(0xff69b4, 1);
       g.fillCircle(30, 30, 4);
-      // Mouth
       g.lineStyle(2, 0x000000, 1);
       g.beginPath();
       g.arc(30, 33, 8, 0, Math.PI, false);
@@ -56,10 +51,20 @@
       g.generateTexture('mole', 60, 60);
       g.destroy();
 
-      // Star particle
+      // Star particle (manual path)
       g = this.add.graphics();
       g.fillStyle(0xffff00, 1);
-      g.fillStar(8, 8, 5, 8, 3);
+      g.beginPath();
+      var cx = 8, cy = 8, spikes = 5, outerR = 8, innerR = 3;
+      var a = -Math.PI / 2, s = Math.PI / spikes;
+      for (var i = 0; i < spikes * 2; i++) {
+        var r = i % 2 === 0 ? outerR : innerR;
+        if (i === 0) { g.moveTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r); }
+        else { g.lineTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r); }
+        a += s;
+      }
+      g.closePath();
+      g.fillPath();
       g.generateTexture('star', 16, 16);
       g.destroy();
 
@@ -83,10 +88,8 @@
 
       // Hammer
       g = this.add.graphics();
-      // Handle
       g.fillStyle(0x8B6914, 1);
       g.fillRect(22, 30, 6, 30);
-      // Head
       g.fillStyle(0x888888, 1);
       g.fillRoundedRect(5, 10, 40, 25, 4);
       g.generateTexture('hammer', 50, 60);
@@ -95,9 +98,9 @@
       // Dirt mound (front layer to hide mole bottom)
       g = this.add.graphics();
       g.fillStyle(0x4a7a2e, 1);
-      g.fillEllipse(45, 10, 90, 25);
+      g.fillRoundedRect(0, 0, 90, 20, 10);
       g.fillStyle(0x6b4226, 1);
-      g.fillEllipse(45, 15, 80, 20);
+      g.fillRoundedRect(5, 5, 80, 18, 9);
       g.generateTexture('dirt-front', 90, 25);
       g.destroy();
 

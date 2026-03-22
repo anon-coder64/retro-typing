@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Retro Typing</title>
+  <script>
+    // Show JS errors on screen for debugging
+    window.onerror = function(msg, url, line) {
+      var d = document.createElement('div');
+      d.style.cssText = 'position:fixed;top:0;left:0;right:0;padding:12px;background:red;color:white;font:14px monospace;z-index:99999;word-break:break-all';
+      d.textContent = msg + ' (' + url + ':' + line + ')';
+      document.body.appendChild(d);
+    };
+    // Set base href so relative paths work when served under a subpath (e.g. /typing)
+    (function() {
+      var path = window.location.pathname;
+      if (path.charAt(path.length - 1) !== '/') path += '/';
+      var base = document.createElement('base');
+      base.href = path;
+      document.head.appendChild(base);
+    })();
+  </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
